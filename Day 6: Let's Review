@@ -1,0 +1,33 @@
+function processData(input) {
+    //Enter your code here
+    message = input.split("\n");
+    var n = parseInt(message[0]);
+    
+    for (var i = 0; i < n; i++) {
+        var newMessage = message[i+1];
+        var theLength = newMessage.length;
+        var newArray = newMessage.split('');
+        var evenArray = "";
+        var oddarray = "";
+        
+        for (var j = 0; j < theLength; j++){
+            if (j % 2 == 0) {
+                evenArray += newArray[j];
+            }
+            else
+                oddarray += newArray[j];
+        } 
+        console.log(evenArray + " " + oddarray);
+    }
+} 
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input) {
+    _input += input;
+});
+
+process.stdin.on("end", function () {
+   processData(_input);
+});
